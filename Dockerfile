@@ -6,10 +6,12 @@ RUN apk add --no-cache \
   php7-gd \
   php7-simplexml \
   php7-redis \
-  php7-mysqli \
   php7-zlib \
   php7-mbstring \
-  php7-json
+  php7-json \
+  php7-curl \
+  php7-openssl \
+  php7-dom
 
 COPY localhost.conf /etc/apache2/conf.d/localhost.conf
 

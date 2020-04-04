@@ -1,17 +1,24 @@
-FROM alpine:3.6
+FROM alpine:3.8
 
-RUN apk add --no-cache \
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+
+RUN apk --update add ca-certificates
+
+RUN echo "https://dl.bintray.com/php-alpine/v3.8/php-7.2" >> /etc/apk/repositories
+
+RUN apk add --update \
+  php \
   apache2 \
-  php7-apache2 \
-  php7-gd \
-  php7-simplexml \
-  php7-redis \
-  php7-zlib \
-  php7-mbstring \
-  php7-json \
-  php7-curl \
-  php7-openssl \
-  php7-dom
+  php-apache2 \
+  php-gd \
+  php-simplexml \
+  php-redis \
+  php-zlib \
+  php-mbstring \
+  php-json \
+  php-curl \
+  php-openssl \
+  php-dom
 
 COPY localhost.conf /etc/apache2/conf.d/localhost.conf
 

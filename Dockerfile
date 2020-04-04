@@ -4,14 +4,15 @@ ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-a
 
 RUN apk --update add ca-certificates
 
-RUN echo "https://dl.bintray.com/php-alpine/v3.8/php-7.2" >> /etc/apk/repositories
+RUN echo "https://dl.bintray.com/php-alpine/v3.8/php-7.3" >> /etc/apk/repositories
 
 RUN apk add --update \
   php \
   apache2 \
   php-apache2 \
   php-gd \
-  php-simplexml \
+  php-ctype \
+  php-gd \
   php-redis \
   php-zlib \
   php-mbstring \
